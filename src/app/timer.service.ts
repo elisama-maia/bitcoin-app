@@ -4,7 +4,7 @@ import { BitcoinService } from './bitcoin.service';
 @Injectable()
 export class TimerService {
   private timer: any;
-  private counter = 30;
+  private counter = 60;
 
   constructor(public bitcoinService: BitcoinService) {}
   start(ms: number) {
@@ -13,7 +13,7 @@ export class TimerService {
         this.counter--;
         if (this.counter == 0) {
           this.bitcoinService.update();
-          this.counter = 30;
+          this.counter = 60;
         }
       }, ms);
     }
